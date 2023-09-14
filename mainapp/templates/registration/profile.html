@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <!-- Display user profile information here --
+</body>
+</html> -->
+
+<!-- mainapp/templates/registration/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 48px;
+            line-height: 150px;
+            text-align: center;
+        }
+
+        .user-details {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .user-details h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .user-details p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+    <div class="profile-container">
+        <div class="profile-picture">
+            <!-- You can display the user's initials or profile picture here -->
+            JM
+        </div>
+        <div class="user-details">
+            <h2>Joe mama</h2>
+            <p>Email: joemama@zzhzh.com</p>
+            <!-- Add more user details as needed -->
+        </div>
+    </div>
+</body>
+</html>
+

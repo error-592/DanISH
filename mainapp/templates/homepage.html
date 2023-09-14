@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DanISh Homepage</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'Hpage.css' %}">
+</head>
+<body>
+    <div class="matrix-background">
+        <!-- Matrix animation or GIF goes here -->
+    </div>
+
+        <header>
+            <h1>DanISH</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+                    {% if user.is_authenticated %}
+                <li><a href="/mainapp/login/">Logout</a></li>
+                {% else %}
+                <li><a href="/mainapp/login/">Login</a></li>
+                <li><a href="/mainapp/signup/">Sign Up</a></li>
+                    {% endif %}
+            </ul>
+        </nav>
+    
+    <div class="content">    
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </section>
+    
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me using the following contact information:</p>
+            <ul>
+                <li>Email: example@email.com</li>
+                <li>Phone: +1 123-456-7890</li>
+            </ul>
+        </section>
+
+        <section id="login">
+            <h2>Login</h2>
+            <a href="/mainapp/login/" class="btn btn-primary">Login</a>
+
+            <!-- Login form goes here -->
+        </section>
+
+        <section id="signup">
+            <h2>Sign Up</h2>
+            <a href="/mainapp/signup/" class="btn btn-primary">Sign Up</a>
+            <!-- Signup form goes here -->
+        </section>
+    </div>
+</body>
+</html>

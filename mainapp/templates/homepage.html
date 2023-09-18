@@ -4,37 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DanISh Homepage</title>
+    <meta name="description" content="DanISH - Your Description Here">
+    <meta name="keywords" content="DanISH, about me, contact me, portfolio">
+    <meta name="author" content="Your Name">
+
+    <title>DanISH Homepage</title>
+
     <link rel="stylesheet" type="text/css" href="{% static 'Hpage.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    
 </head>
 <body>
     <div class="matrix-background">
         <!-- Matrix animation or GIF goes here -->
     </div>
+    <header>
+        <h1><span class="dan">Dan</span><span class="ish">ISH</span></h1>
+    </header>
 
-        <header>
-            <h1>DanISH</h1>
-        </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+            {% if user.is_authenticated %}
+            <li class="user-dropdown">
+                <a href="#" class="user-link">
+                    <i class="fa fa-user"></i> <!-- Add an icon here -->
+                    {{ user.username }}
+                </a>
+                <ul class="dropdown-content" id="user-dropdown-content">
+                    <li><a href="{% url 'mainapp:profile-update' %}">Profile</a></li>
+                    <li><a href="/mainapp/logout/">Logout</a></li>
+                </ul>
+            </li>
+            {% else %}
+            <li><a href="/mainapp/login/">Login</a></li>
+            <li><a href="/mainapp/signup/">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
 
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-                    {% if user.is_authenticated %}
-                <li><a href="/mainapp/login/">Logout</a></li>
-                {% else %}
-                <li><a href="/mainapp/login/">Login</a></li>
-                <li><a href="/mainapp/signup/">Sign Up</a></li>
-                    {% endif %}
-            </ul>
-        </nav>
-    
-    <div class="content">    
+    <main class="content">
         <section id="about">
             <h2>About Me</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
         </section>
-    
+
         <section id="contact">
             <h2>Contact Me</h2>
             <p>Feel free to reach out to me using the following contact information:</p>
@@ -44,18 +60,44 @@
             </ul>
         </section>
 
-        <section id="login">
+        <!-- <section id="login">
             <h2>Login</h2>
-            <a href="/mainapp/login/" class="btn btn-primary">Login</a>
-
-            <!-- Login form goes here -->
+            <a href="/mainapp/login/" class="btn btn-red">Login</a>
+            <!-- Login form goes here --
         </section>
 
         <section id="signup">
             <h2>Sign Up</h2>
-            <a href="/mainapp/signup/" class="btn btn-primary">Sign Up</a>
-            <!-- Signup form goes here -->
-        </section>
-    </div>
+            <a href="/mainapp/signup/" class="btn btn-red">Sign Up</a>
+            <!-- Signup form goes here --
+        </section> -->
+    </main>
+
+    <footer class="footer">
+        <p>
+            <li>Email: imdanishm@gmail.com</li>
+            <li>Phone: +1 123-456-7890</li>
+             &copy; 2023 DanISH</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var userDropdown = document.querySelector(".user-dropdown");
+            var userDropdownContent = document.querySelector("#user-dropdown-content");
+    
+            userDropdown.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevent the click event from closing immediately
+                userDropdownContent.classList.toggle("active");
+            });
+    
+            // Close the dropdown if a click occurs outside of it
+            document.addEventListener("click", function (event) {
+                if (!userDropdown.contains(event.target)) {
+                    userDropdownContent.classList.remove("active");
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

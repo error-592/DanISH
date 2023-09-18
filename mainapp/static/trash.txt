@@ -302,3 +302,367 @@ section {
 
 --------------------------homepage.css
 
+body, h1, form, p, h2 {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+    color: #128403;
+    font-family: Consolas;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #128403;
+    font-family: Consolas;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #4b4646c5;
+    padding-left: 1em;
+}
+
+header h1:hover {
+    color: #ff4500;
+}
+
+nav {
+    text-align: center;
+    background-color: #333;
+}
+
+/* Style the navigation list */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Style the links on hover */
+nav a:hover {
+    text-decoration: underline;
+    color: #ff4500;
+}
+
+/* Dropdown Menu */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Gif background */
+.matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('GIFs/sun-gif.gif') center/cover fixed;
+    animation: matrixAnimation 30s linear infinite;
+}
+
+/* Content container */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(250, 250, 250, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Sections */
+section {
+    margin: 40px 0;
+}
+
+/* Matrix animation keyframes */
+@keyframes matrixAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+
+/* Red Button */
+.btn-red {
+    background-color: #a2ff00; /* Red */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px; /* Adjust the border-radius to create a capsule shape */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-red:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Dark Blue Button
+.btn-blue {
+    background-color: #00008b; /* Dark Blue 
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px; /* Adjust the border-radius to create a capsule shape 
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #000066; /* Darker blue on hover 
+} */
+
+p a {
+    color: #ff4500; /*#007bff */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #128403; /*0056b3*/
+}
+
+-----------------------------Hpage.css 9/14/
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DanISh Homepage</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'Hpage.css' %}">
+</head>
+<body>
+    <div class="matrix-background">
+        <!-- Matrix animation or GIF goes here -->
+    </div>
+
+        <header>
+            <h1>DanISH</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+                {% if user.is_authenticated %}
+                <li class="user-dropdown">
+                    <a href="#" class="user-link">{{ user.username }}</a>
+                    <ul class="dropdown-content">
+                        <li><a href="/mainapp/logout/">Logout</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="/mainapp/login/">Login</a></li>
+                <li><a href="/mainapp/signup/">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    
+    <div class="content">    
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </section>
+    
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me using the following contact information:</p>
+            <ul>
+                <li>Email: example@email.com</li>
+                <li>Phone: +1 123-456-7890</li>
+            </ul>
+        </section>
+
+        <section id="login">
+            <h2>Login</h2>
+            <a href="/mainapp/login/" class="btn-red">Login</a>
+
+            <!-- Login form goes here -->
+        </section>
+
+        <section id="signup">
+            <h2>Sign Up</h2>
+            <a href="/mainapp/signup/" class="btn-red">Sign Up</a>
+            <!-- Signup form goes here -->
+        </section>
+    </div>
+</body>
+</html>
+ ===================homepage.html 9/14
+
+ <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'signin.css' %}"> 
+</head>
+<body>
+    <div class="matrix-background">
+        <!-- Matrix animation or GIF goes here -->
+    </div>
+
+    
+        <header>
+            <h1>DanISH</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <!-- Add a Home button and Login button -->
+                <li><a href="/mainapp/homepage/" class="btn btn-red">Home</a></li>
+                <li><a href="/mainapp/login/">Login</a></li>
+                <li><a href="/mainapp/signup/">Sign Up</a></li>
+            </ul>
+        </nav>
+
+    <div class="content">    
+
+        <section id="signup">
+            <h2></h2>
+            <!-- <div class="signup-button">
+                <a href="/mainapp/homepage/" class="btn btn-red">Home</a> 
+            </div> -->
+            <div class="signup-container"> 
+                <h2>Sign Up</h2> 
+            <form method="post"> 
+                      {% csrf_token %} 
+                      {{ form.as_p }} 
+                <button type="submit" class="pixel-button">Sign in</button>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                         {% endfor %}
+                    </ul>
+                {% endif %} 
+            </div>
+            </form> 
+                <p>Already have an account? <a href="/mainapp/login/" class="btn btn-primary">Login</a> </div>
+        </section>
+    </div>
+</body>
+</html>
+
+======================================signup,html 14/9
+
+<!DOCTYPE html>
+<!-- {% extends 'base.html'  -->
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+
+    <div class="content">
+        <section id="user-info">
+            <h2>User Information</h2>
+            <p>Username: {{ user.username }}</p>
+            <p>Email: {{ user.email }}</p>
+            <!-- Display user's profile picture here -->
+            <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+        </section>
+
+        <section id="change-password">
+            <h2>Change Password</h2>
+            <form method="post" action="{% url 'mainapp:change_password' %}">
+                {% csrf_token %}
+                {{ password_form.as_p }}
+                <button type="submit">Change Password</button>
+            </form>
+        </section>
+
+        <section id="upload-profile-picture">
+            <h2>Upload Profile Picture</h2>
+            <form method="post" enctype="multipart/form-data" action="{% url 'mainapp:upload_profile_picture' %}">
+
+                {% csrf_token %}
+                {{ profile_picture_form.as_p }}
+                <button type="submit">Upload Profile Picture</button>
+            </form>
+        </section>
+
+        <!-- Edit Profile section -->
+        <section id="edit-profile">
+            <h2>Edit Profile</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save Changes</button>
+            </form>
+
+            <!-- Display profile picture -->
+            {% if user.profile.profile_picture %}
+        <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+            {% else %}
+        <p>No profile picture available</p>
+            {% endif %}
+        </section>
+    </div>
+
+    <!-- Add any additional styling or scripts as needed -->
+
+</body>
+</html>
+==========================================profile.html 18/9

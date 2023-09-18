@@ -1,6 +1,8 @@
-from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.db import models 
+from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils import timezone
+from django.conf import settings
+from django import forms
 
 
 class Project(models.Model):
@@ -52,3 +54,17 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'username'
     # Add REQUIRED_FIELDS if you have additional required fields
+
+class Profile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+
+    def __str__(self):
+        return self.user.username
+    
+
+# class ProfileForm(forms.ModelForm):
+#     class Meta:
+#         model = Profile
+#         fields = ['profile_picture']  # Include only the 'profile_picture' field
+

@@ -88,6 +88,8 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'mainapp.CustomUser'
 
+AUTH_PROFILE_MODULE = 'mainapp.models.Profile'
+
 LOGIN_REDIRECT_URL = '/mainapp/homepage/'
 
 AUTH_PASSWORD_VALIDATORS = [

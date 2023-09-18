@@ -1,98 +1,77 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 {% load static %}
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
     <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1>User Profile</h1>
-    <!-- Display user profile information here --
-</body>
-</html> -->
-
-<!-- mainapp/templates/registration/profile.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #007BFF;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        .profile-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto;
-            display: block;
-            background-color: #007BFF;
-            color: #fff;
-            font-size: 48px;
-            line-height: 150px;
-            text-align: center;
-        }
-
-        .user-details {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .user-details h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .user-details p {
-            font-size: 16px;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
+    <div class="cinematic-background">
+        <!-- Cinematic background animation or video goes here -->
+    </div>
     <header>
         <h1>User Profile</h1>
     </header>
-    <div class="profile-container">
-        <div class="profile-picture">
-            <!-- You can display the user's initials or profile picture here -->
-            JM
-        </div>
-        <div class="user-details">
-            <h2>Joe mama</h2>
-            <p>Email: joemama@zzhzh.com</p>
-            <!-- Add more user details as needed -->
-        </div>
+
+    <div class="content">
+        <section id="user-info">
+            <h2>User Information</h2>
+            <div class="info-item">
+                <i class="fa fa-user"></i>
+                <p>Username: {{ user.username }}</p>
+            </div>
+            <div class="info-item">
+                <i class="fa fa-envelope"></i>
+                <p>Email: {{ user.email }}</p>
+            </div>
+            <!-- Display user's profile picture here -->
+            <div class="profile-picture">
+                <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+            </div>
+        </section>
+
+        <section id="change-password">
+            <h2>Change Password</h2>
+            <form method="post" action="{% url 'mainapp:change_password' %}">
+                {% csrf_token %}
+                {{ password_form.as_p }}
+                <button type="submit">Change Password</button>
+            </form>
+        </section>
+
+        <section id="upload-profile-picture">
+            <h2>Upload Profile Picture</h2>
+            <form method="post" enctype="multipart/form-data" action="{% url 'mainapp:upload_profile_picture' %}">
+                {% csrf_token %}
+                {{ profile_picture_form.as_p }}
+                <button type="submit">Upload Profile Picture</button>
+            </form>
+        </section>
+
+        <!-- Edit Profile section -->
+        <section id="edit-profile">
+            <h2>Edit Profile</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save Changes</button>
+            </form>
+
+            <!-- Display profile picture -->
+            <div class="profile-picture">
+                {% if user.profile.profile_picture %}
+                    <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+                {% else %}
+                    <p>No profile picture available</p>
+                {% endif %}
+            </div>
+        </section>
     </div>
+
+    <!-- Add any additional styling or scripts as needed -->
+
 </body>
 </html>
-

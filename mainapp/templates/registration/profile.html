@@ -5,31 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'userpage.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="cinematic-background">
-        <!-- Cinematic background animation or video goes here -->
+    <div class="matrix-background">
+        <!-- Matrix animation or GIF goes here -->
     </div>
     <header>
         <h1>User Profile</h1>
+        <a href="{% url 'mainapp:homepage' %}" class="home-button">Home</a>
     </header>
 
+    
     <div class="content">
         <section id="user-info">
             <h2>User Information</h2>
             <div class="info-item">
-                <i class="fa fa-user"></i>
-                <p>Username: {{ user.username }}</p>
+                <i class="fa fa-user"> Username: {{ user.username }}</i>
             </div>
             <div class="info-item">
-                <i class="fa fa-envelope"></i>
-                <p>Email: {{ user.email }}</p>
-            </div>
-            <!-- Display user's profile picture here -->
-            <div class="profile-picture">
-                <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+                <i class="fa fa-envelope"> Email: {{ user.email }}</i>
             </div>
         </section>
 
@@ -38,29 +34,31 @@
             <form method="post" action="{% url 'mainapp:change_password' %}">
                 {% csrf_token %}
                 {{ password_form.as_p }}
-                <button type="submit">Change Password</button>
+                <button type="submit" class="pixel-button">Change Password</button>
             </form>
         </section>
 
-        <section id="upload-profile-picture">
+        <!-- <section id="upload-profile-picture">
             <h2>Upload Profile Picture</h2>
             <form method="post" enctype="multipart/form-data" action="{% url 'mainapp:upload_profile_picture' %}">
                 {% csrf_token %}
                 {{ profile_picture_form.as_p }}
                 <button type="submit">Upload Profile Picture</button>
             </form>
-        </section>
+        </section> -->
 
-        <!-- Edit Profile section -->
+        <!-- Edit Profile section
         <section id="edit-profile">
-            <h2>Edit Profile</h2>
+             <h2>Edit Profile</h2>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Save Changes</button>
+                {{ form.as_p }} 
+                <button type="submit" class="pixel-button">Save Changes</button>
             </form>
+        </section>
+    </div> -->
 
-            <!-- Display profile picture -->
+            <!-- Display profile picture
             <div class="profile-picture">
                 {% if user.profile.profile_picture %}
                     <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
@@ -69,9 +67,9 @@
                 {% endif %}
             </div>
         </section>
-    </div>
+    </div> -->
 
-    <!-- Add any additional styling or scripts as needed -->
+  
 
 </body>
 </html>

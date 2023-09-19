@@ -1,0 +1,122 @@
+/* Reset some default styles */
+body, h1, form, p, i, h2 {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas;/* monospace;*/
+
+}
+
+/* Header and Navigation Text */
+header h1, h2, nav a {
+    color: #37133f; /* White text for header and navigation */
+}
+
+
+
+/* Header and Navigation Background */
+header, nav {
+    background-color: rgba(225, 163, 216, 0.5); /* Semi-transparent dark background */
+}
+
+h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+    font-family: Consolas;
+   text-align: center;
+}
+
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: Consolas;
+}
+
+/* Style the header container */
+header {
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* Style the heading on hover (if needed) */
+header h1:hover {
+    color: #f0befc; /* Change text color on hover */
+}
+
+/* Gif background */
+.matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('GIFs/city-gif.gif') center/cover fixed;
+    animation: matrixAnimation 30s linear infinite;
+}
+
+/* Content container */
+.content {
+    max-width: 800px;
+    margin: 10px auto 0;
+    padding: 20px;
+    background-color: rgba(225, 163, 216, 0.5); /* Semi-transparent dark background for content */
+    box-shadow: 0 0 20px rgba(225, 163, 216, 0.2);
+    color: #fff;
+}
+
+/* Sign up link */
+p a {
+    color: #090909; /* Accent color for links */
+}
+
+p a:hover {
+    color: #f0befc; /* Darker accent color on hover */
+}
+
+/* Matrix animation keyframes */
+@keyframes matrixAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.pixel-button {
+    font-family: Consolas;
+    font-size: 16px; /* Adjust the font size as needed */
+    background-color: #8b003f; /* Button background color */
+    color: #fff; /* Text color */
+    border: #fff; /* Remove default button border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 0; /* Remove border radius for a blocky look */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.pixel-button:hover {
+    background-color: #660018; /* Darker color on hover */
+}
+
+/* Home button */
+.home-button {
+    font-family: Consolas;
+    font-size: 16px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8b003f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0px;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    
+}
+
+.home-button:hover {
+    background-color: #660018;
+}

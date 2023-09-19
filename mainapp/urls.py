@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 from mainapp.views import CustomLoginView, ProfileUpdateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'mainapp'
 
@@ -20,5 +22,7 @@ urlpatterns = [
 
 
 
-
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -14,7 +14,7 @@
     </div>
     <header>
         <h1>User Profile</h1>
-        <a href="{% url 'mainapp:homepage' %}" class="home-button">Home</a>
+        <a href="{% url 'mainapp:homepage' %}" class="home-button"> Home</a>
     </header>
 
     
@@ -38,36 +38,6 @@
             </form>
         </section>
 
-        <!-- <section id="upload-profile-picture">
-            <h2>Upload Profile Picture</h2>
-            <form method="post" enctype="multipart/form-data" action="{% url 'mainapp:upload_profile_picture' %}">
-                {% csrf_token %}
-                {{ profile_picture_form.as_p }}
-                <button type="submit">Upload Profile Picture</button>
-            </form>
-        </section> -->
-
-        <!-- Edit Profile section
-        <section id="edit-profile">
-             <h2>Edit Profile</h2>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }} 
-                <button type="submit" class="pixel-button">Save Changes</button>
-            </form>
-        </section>
-    </div> -->
-
-            <!-- Display profile picture
-            <div class="profile-picture">
-                {% if user.profile.profile_picture %}
-                    <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
-                {% else %}
-                    <p>No profile picture available</p>
-                {% endif %}
-            </div>
-        </section>
-    </div> -->
 
   
 

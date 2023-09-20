@@ -1,0 +1,111 @@
+ /* Reset some default styles */
+ body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Define general styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff4500;
+}
+
+section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+#about {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center-align the section horizontally */
+    padding: 20px; /* Add padding to create some space around the content */
+    text-align: center; /* Justify the text for better readability */
+  }
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077B5;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0027b5;
+}
+
+.download-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #b4b4b4;
+}
+
+/* Customize hero section */
+#hero {
+    background-image: url('images/DanISH\ \ \(1\).jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+/* Customize hero content */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}

@@ -1,6 +1,6 @@
 from django import forms
 from .models import Profile, CustomUser
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -51,3 +51,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['profile_pic']
+
+
+class CustomPasswordChangeForm(PasswordChangeForm):
+    pass

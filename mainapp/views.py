@@ -14,6 +14,9 @@ from .models import Profile, CustomUser
 def homepage(request):
     return render(request, 'homepage.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
     authentication_form = CustomAuthenticationForm
@@ -28,11 +31,11 @@ def signup(request):
             Profile.objects.create(user=user)
         
             login(request, user) # Log the user in
-            return redirect('registration/login.html')  # sends user to "the" page after complition of registration
+            return redirect('mainapp:login')  # sends user to "the" page after complition of registration
         else:
             messages.error(request, 'Error creating the account. Please check the form data.')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm() #important 
     return render(request, 'registration/signup.html', {'form': form})
 
 # @login_required
